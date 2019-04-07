@@ -1,0 +1,30 @@
+@import "base.less";
+#main {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    >.title{
+        display: flex;
+        height: .6rem;
+        input {
+            border-radius:   .05rem 0  0 .05rem;
+        }
+        .btn-search{
+            // width: .45rem;
+            height: .4rem;
+            border-radius: 0  .05rem  .05rem 0;
+        }
+    }
+    .content {
+        flex: 1;
+        a{
+            color:gray;
+        }
+        .mui-card-content{
+            .mui-table-view-cell{
+                line-height: .44rem;
+                height: .44rem;
+            }
+        }
+    }
+}
