@@ -99,6 +99,8 @@ img {
     flex: 1;
     // display: flex;
     overflow: hidden;
+    flex-direction: column;
+    padding: 10px;
     .mui-scroll-wrapper{
         height: 100%;
         position: relative;
@@ -107,6 +109,41 @@ img {
             height: auto;
         }
     }
+.mui-scroll{
+    >.title{
+        display: flex;
+        height: .5rem;
+        line-height: .5rem;
+        input[type='text'] {
+            border-radius:.05rem 0  0 .05rem;
+            margin-bottom: .1rem;
+        }
+        .btn-search{
+            height: .4rem;
+            border-radius: 0  .05rem  .05rem 0;
+        }
+    }
+    .content {
+        flex: 1;
+        .mui-card{
+            margin: 0;
+            .mui-card-header {
+                a{
+                    &.active {
+                        color:red;
+                    }
+                }
+            }
+            a{
+                color:gray;
+                
+            }
+        }
+        
+        
+    }
+}
+    
 }
 #footer{
     // width: 100%;

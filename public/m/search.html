@@ -22,13 +22,13 @@
     <main id="main">
         <div class="title">
             <input type="text" placeholder="请输入要搜索的商品" class="search-txt">
-            <button type="button" class="mui-btn mui-btn-primary btn-search">蓝色</button>
+            <button type="button" class="mui-btn mui-btn-primary btn-search">搜索</button>
         </div>
         <div class="content">
             <div class="mui-card">
                 <div class="mui-card-header">
                     <span>搜索历史</span>
-                    <a href=""><i class="fa fa-trash"></i>清空记录</a>
+                    <a href="" class="clearAll"><i class="fa fa-trash "></i>清空记录</a>
                 </div>
                 <!--内容区-->
                 <div class="mui-card-content">
@@ -67,7 +67,7 @@
         {{ each list value index }}
         <li class="mui-table-view-cell">
             {{ value }}
-                <span class="mui-badge data-index='{{ index }}'"><i class="fa fa-times" aria-hidden="true"></i></span>
+                <span class="mui-badge "><i class="fa fa-times data-index='{{ index }}'" aria-hidden="true"></i></span>
             </li>
             {{ /each }}
     </script>

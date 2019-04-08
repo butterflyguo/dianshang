@@ -1,36 +1,41 @@
 // import { template } from "handlebars";
 
 $(function(){
+    addHistory();
     queryHistory();
-    $(".btn-search").on("tap",function(){
-       var search= $(".search-txt").val().trim();
-       if(search==""){
-           return;
-       }
-      
-        var history=localStorage.getItem("searchHistory");
-        // var history=JSON.parse(localStorage.getItem("searchHistory"));
-        console.log(history);
-        if(history==null){
-            var arr=[];
-        }else{
-            var arr=JSON.parse(history);
-        }
-       console.log(arr);
-       arr= uniq(arr);
-
-        for(var i=0;i<arr.length;i++){
-            if(arr[i]==search){
-                arr.splice(i,1);
-                i--;
+    
+    function addHistory(){
+        $(".btn-search").on("tap",function(){
+            var search= $(".search-txt").val().trim();
+            if(search==""){
+                return;
             }
-        }
-        arr.unshift(search);
-        console.log(arr);
-        localStorage.setItem("searchHistory",JSON.stringify(arr));
-        $(".search-txt").val("");
-        queryHistory();
-    })
+           
+             var arr=localStorage.getItem("searchHistory");
+             console.log(arr);
+             if(arr==null){
+                  arr=[];
+             }else{
+                  arr=JSON.parse(arr);
+             }
+            console.log(arr);
+            arr= uniq(arr);
+     
+             for(var i=0;i<arr.length;i++){
+                 if(arr[i]==search){
+                     arr.splice(i,1);
+                     i--;
+                 }
+             }
+             arr.unshift(search);
+             console.log(arr);
+             localStorage.setItem("searchHistory",JSON.stringify(arr));
+             $(".search-txt").val("");
+             queryHistory();
+             location="productList.html?search="+search;
+         })
+    }
+   
 
     function uniq(array) {
         var temp = []; //一个新的临时数组
@@ -44,15 +49,31 @@ $(function(){
 
 
     function queryHistory(){
-        localStorage.getItem("searchHistory");
-        var history=JSON.parse(localStorage.getItem("searchHistory"));
-        if(history==null){
-            var arr=[];
+        var arr=localStorage.getItem("searchHistory");
+        if(arr==null){
+             arr=[];
         }else{
-            var arr=history;
+             arr=JSON.parse(arr);
         }
 
         var html=template("searchTpl",{ list:arr });
         $(".mui-table-view").html(html);
     }
+
+    $('.mui-table-view').on('tap','.fa-times',function(){
+        var index=$(this).data('index');
+        var arr=localStorage.getItem('searchHistory');
+        arr=JSON.parse(arr);
+        console.log(arr);
+        arr.splice(index,1);
+        arr=JSON.stringify(arr);
+        localStorage.setItem('searchHistory',arr);
+        queryHistory();
+    })
+
+    $(".clearAll").on('tap',function(){
+        localStorage.removeItem('searchHistory');
+        queryHistory();
+    })
+
 })

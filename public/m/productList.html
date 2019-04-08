@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="lib/mui/css/mui.css">
+    <link rel="stylesheet" href="lib/fontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="less/productList.css">
+    <title>自己写的产品内容页面</title>
+</head>
+
+<body>
+    <header id="header">
+        <div class="left"><a href="category.html"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></div>
+        <div class="center">
+            <h4>商品列表</h4>
+        </div>
+    </header>
+    <main id="main">
+
+            <div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+                    <div class="mui-scroll">
+                        <!--数据列表-->
+                        <div class="title">
+                                <input type="text" placeholder="请输入要搜索的商品" class="search-txt">
+                                <a  href=""type="button" class="mui-btn mui-btn-primary btn-search">搜索</a>
+                            </div>
+                            <div class="content">
+                                <div class="mui-card">
+                                    <!--页眉，放置标题-->
+                                    <div class="mui-card-header title">
+                                        <a href="#"data-type="time" data-sort="1" class="active">上架时间 <i class="fa fa-angle-down"></i></a>
+                                        <a href="#"data-type="price" data-sort="1">价格 <i class="fa fa-angle-down"></i></a>
+                                        <a href="#"data-type="num" data-sort="1">销量<i class="fa fa-angle-down"></i></a>
+                                        <a href="#"data-type="discount" data-sort="1">折扣<i class="fa fa-angle-down"></i></a>
+                                    </div>
+                                    <!--内容区-->
+                                    <div class="mui-card-content pruduct-content">
+                                        <div class="mui-row product-box">
+                                           
+                                        </div>
+                                    </div>
+                    
+                                </div>
+                    
+                            </div>
+                            </div>
+                    </div>
+                </div>
+        
+    </main>
+    <!-- 底部区域 -->
+    <footer id="footer">
+            <div class="mui-row">
+                <div class="mui-col-sm-3">
+                    <a href="index.html"><i class="fa fa-home"></i><span>首页</span></a>
+                </div>
+                <div class="mui-col-sm-3">
+                    <a href="category.html"><i class="fa fa-home"></i><span>分类</span></a>
+                </div>
+    
+                <div class="mui-col-sm-3">
+                    <a href="cart"><i class="fa fa-home"></i><span>购物车</span></a>
+                </div>
+                <div class="mui-col-sm-3">
+                    <a href="user.html"><i class="fa fa-home"></i><span>个人中心</span></a>
+                </div>
+            </div>
+        </footer>
+    <script id="productListTpl" type="text/html">
+        {{ each data value index }}
+        <div class="mui-col-xs-6">
+        <a id="product">
+        <img src="{{value.pic[0].picAddr}}" alt="" >
+        <span >{{ value.proName }}</span>
+        <p class="pruduct-prince">
+            <span>{{ value.price }}</span>
+            <del>{{ value.oldPrice }}</del>
+        </p>
+        <button type="button" class="mui-btn mui-btn-primary" data-id="{{ value.id }}">立即购买</button>
+    </a>
+    </div>
+        {{ /each }}
+    </script>
+    <script src="lib/mui/js/mui.js"></script>
+    <script src="lib/zepto/zepto.min.js"></script>
+    <script src="lib/artTemplate/template-web.js"></script>
+    <script src="js/productList.js"></script>
+</body>
+
+</html>
