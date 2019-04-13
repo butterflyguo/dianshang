@@ -10,8 +10,8 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  line-height: .14rem;
-  font-size: .14rem;
+  line-height: 0.14rem;
+  font-size: 0.14rem;
 }
 h1,
 h2,
@@ -25,15 +25,18 @@ img {
   vertical-align: middle;
   border: none;
 }
+li {
+  list-style: none;
+}
 #header {
   background-color: #006699;
   display: flex;
-  height: .45rem;
+  height: 0.45rem;
 }
 #header h4 {
   text-align: center;
   color: #fff;
-  line-height: .45rem;
+  line-height: 0.45rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,15 +45,15 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: .45rem;
-  height: .45rem;
+  width: 0.45rem;
+  height: 0.45rem;
 }
 #header .left a i {
   color: #fff;
 }
 #header .right {
-  width: .45rem;
-  height: .45rem;
+  width: 0.45rem;
+  height: 0.45rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,10 +63,10 @@ img {
 }
 #header .center {
   flex: 1;
-  line-height: .45rem;
+  line-height: 0.45rem;
 }
 #header .center h4 {
-  line-height: .45rem;
+  line-height: 0.45rem;
   margin: 0;
 }
 #header .center input[type='search'] {
@@ -72,6 +75,8 @@ img {
 #main {
   flex: 1;
   overflow: hidden;
+  flex-direction: column;
+  padding: 10px;
 }
 #main .mui-scroll-wrapper {
   height: 100%;
@@ -81,8 +86,33 @@ img {
 #main .mui-scroll-wrapper .mui-scroll {
   height: auto;
 }
+#main .mui-scroll > .title {
+  display: flex;
+  height: 0.5rem;
+  line-height: 0.5rem;
+}
+#main .mui-scroll > .title input[type='text'] {
+  border-radius: 0.05rem 0 0 0.05rem;
+  margin-bottom: 0.1rem;
+}
+#main .mui-scroll > .title .btn-search {
+  height: 0.4rem;
+  border-radius: 0 0.05rem 0.05rem 0;
+}
+#main .mui-scroll .content {
+  flex: 1;
+}
+#main .mui-scroll .content .mui-card {
+  margin: 0;
+}
+#main .mui-scroll .content .mui-card .mui-card-header a.active {
+  color: red;
+}
+#main .mui-scroll .content .mui-card a {
+  color: gray;
+}
 #footer {
-  height: .45rem;
+  height: 0.45rem;
   background-color: #006699;
 }
 #footer .mui-row {

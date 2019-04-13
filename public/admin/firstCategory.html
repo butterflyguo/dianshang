@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自己写的后台首页</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href='./lib/less/index.css'>
+</head>
+
+<body>
+    <main id="main">
+        <section class="left ">
+            <div class="logo">
+                <img src="./images/my_logo.jpg" alt="">
+                <p>王凯旋</p>
+            </div>
+            <div class="lists">
+                <a href="index.html" class=" btn user" role="button">
+                    用户管理
+                </a>
+                <a class="btn category  active" role="button" data-toggle="collapse" href="#collapseExample"
+                    aria-expanded="false" aria-controls="collapseExample">
+                    分类管理
+                </a>
+                <div class="collapse in items" id="collapseExample">
+                    <a href="firstCategory.html" class="btn btn-default item" role="button">
+                        一级分类
+                    </a>
+                    <a href="secondCategory.html" class="btn btn-default item" role="button">
+                        二级分类
+                    </a>
+                </div>
+                <a class="btn  product" role="button" data-toggle="collapse" href="" aria-expanded="false"
+                    aria-controls="collapseExample">
+                    商品管理
+                </a>
+            </div>
+        </section>
+        <section class="right ">
+
+            <div class="title">
+                <a href="" class="fa fa-navicon"></a>
+                <a href="" class="fa fa-sign-out exit">退出</a>
+            </div>
+
+            <div class="content">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+                    添加分类
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">添加分类</h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1">分类名称</span>
+                                    <input type="text" class="form-control" placeholder="运动馆"
+                                        aria-describedby="basic-addon1">
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary btn-save" data-dismiss="modal">保存</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-bordered user">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>分类编号</th>
+                            <th>分类名称</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">
+                                <input type="checkbox">
+                            </th>
+                            <td>5</td>
+                            <td>户外馆</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <ul id="page">...</ul>
+            </div>
+        </section>
+    </main>
+    <script id="firstCategoryTpl" type="text/html">
+        {{ each rows value  }}
+            <tr>
+                <th scope="row">
+                    <input type="checkbox">
+                </th>
+                <td>{{value.id}}</td>
+                <td>{{value.categoryName}}</td>
+            </tr>
+            {{ /each }}
+    </script>
+    <script src='lib/jquery/jquery.js'></script>
+    <script src='lib/bootstrap/js/bootstrap.js'></script>
+    <script src="lib/artTemplate/template-web.js"></script>
+    <script src='lib/bootstrap/js/bootstrap-paginator.js'></script>
+    <script src="js/firstCategory.js"></script>
+    <!-- <script src='js/index.js'></script> -->
+
+    <script src='js/common.js'></script>
+</body>
+
+</html>

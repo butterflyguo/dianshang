@@ -67,6 +67,8 @@ $(function () {
                 console.log(data);
                 var html = template('productListTpl', data);
                 $(".product-box").html(html);
+                mui('#pullrefresh').pullRefresh().refresh(true);
+                page++;
             }
         })
 
@@ -82,6 +84,8 @@ $(function () {
             success: function (data) {
                 var html = template('productListTpl', data);
                 $(".product-box").html(html);
+                mui('#pullrefresh').pullRefresh().refresh(true);
+                page=1;
             }
         })
     }
@@ -119,9 +123,11 @@ $(function () {
      * 上拉加载具体业务实现
      */
     var page=1;
+
     function pullupRefresh() {
-        page++;
+       
         setTimeout(function() {
+            page++;
             $.ajax({
                 url: "/product/queryProduct",
                 data: {
@@ -144,5 +150,10 @@ $(function () {
            
         }, 1500);
     }
+
+    $('.product-box').on('tap','.product-btn',function(){
+        var id=$(this).data("id");
+        location="detail.html?id="+id;
+    })
 
 })

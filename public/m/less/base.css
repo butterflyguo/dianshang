@@ -25,6 +25,9 @@ img {
   vertical-align: middle;
   border: none;
 }
+li {
+  list-style: none;
+}
 #header {
   background-color: #006699;
   display: flex;

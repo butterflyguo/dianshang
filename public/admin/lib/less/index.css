@@ -1,0 +1,89 @@
+body {
+  height: 100vh;
+}
+#main {
+  height: 100%;
+  display: flex;
+}
+#main .left {
+  width: 200px;
+  background-color: skyblue;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  padding-right: 0;
+}
+#main .left .logo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 10px solid #fff;
+  box-shadow: 0 0 5px 2px hotpink;
+  margin-bottom: 10px;
+}
+#main .left .logo p {
+  text-align: center;
+}
+#main .left .lists {
+  width: 100%;
+}
+#main .left .lists .btn {
+  width: 100%;
+  text-align: left;
+  border: 0;
+  color: #666;
+}
+#main .left .lists .btn.active {
+  background-color: hotpink;
+  color: #fff;
+}
+#main .left .lists .user {
+  border-radius: 4px 4px 0 0;
+}
+#main .left .lists .category {
+  border-radius: 0;
+}
+#main .left .lists .product {
+  border-radius: 0px 0px 4px 4px;
+}
+#main .left .lists .items {
+  overflow: hidden;
+}
+#main .left .lists .items .item {
+  background-color: transparent;
+  margin-left: 20px;
+}
+#main .left .lists .items .item:active {
+  background-color: hotpink;
+}
+#main .right {
+  flex: 1;
+}
+#main .right .title {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+#main .right .content {
+  padding: 20px;
+}
+#main .right .content td,
+#main .right .content th {
+  text-align: center;
+}
+#main .right .content td img,
+#main .right .content th img {
+  width: 160px;
+  height: 80px;
+}
+#main .right .content .modal-body {
+  line-height: 34px;
+}
+#main .right .content .modal-body .input-group {
+  margin-bottom: 10px;
+}
+#main .right .content .modal-body img {
+  width: 200px;
+}
